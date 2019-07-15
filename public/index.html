@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>个人主页</title>
+</head>
+<body>
+<ul id="list">
+
+</ul>
+<script type="text/javascript">
+  // 获取查询字符串
+  const querystring = window.location.search;
+  // 格式化成对象
+  const query = querystring.split('?')[1].split('&').reduce((p, c) => {
+    const param = c.split('=');
+    p[param[0]] = param[1];
+    return p;
+  }, {});
+  // 添加到页面中
+  document.getElementById('list').innerHTML = `<li>用户名: ${query.name}</li><li><img src="${query.avatar_url}" alt="用户头像"></li>`;
+
+</script>
+</body>
+</html>

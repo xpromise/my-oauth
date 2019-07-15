@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登录页面</title>
+</head>
+<body>
+<button id="btn">使用github第三方登录</button>
+<script type="text/javascript">
+  const btn = document.getElementById('btn');
+
+  // github验证后返回的id
+  const client_id = 'ba6e49e04ddda1b425ed';
+  // oauth验证网址
+  const auth_url = 'https://github.com/login/oauth/authorize';
+  const redirect_url = 'http://localhost:3000/oauth/redirect';
+
+  btn.onclick = function () {
+    window.location.href = `${auth_url}?client_id=${client_id}&redirect_uri=${redirect_url}`;
+  }
+</script>
+</body>
+</html>
